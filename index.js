@@ -8,13 +8,15 @@ const userInputString = prompt(
 );
 
 // Split the string of numbers into an array of strings.
-const stringArray = userInputString.split(",");
+        const stringArray = userInputString.split(",");
 
 // Convert the array of strings into an array of numbers.
 const numbers = [];
 for (let i = 0; i < stringArray.length; i++) {
-  const str = stringArray[i];
-  const number = parseInt(str);
+       const str = stringArray[i];
+  
+  
+       const number = parseInt(str);
   numbers.push(number);
 }
 
@@ -29,6 +31,10 @@ console.log(`The range of your numbers is ${getRange(numbers)}.`);
 console.log(`The even numbers you gave are ${getEvens(numbers)}.`);
 console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
 
+
+//Template Literals above serve to inject the code based on the functions being listed into the strings that describe the interaction. 
+
+
 // === EDIT THE CODE BELOW ===
 // Complete the functions below to make the program work!
 
@@ -37,61 +43,124 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  * @returns {number} the length of the array
  */
 function getLength(numbers) {
-  // TODO
+  return numbers.length;
 }
+
+//Finds the length 
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the sum of the numbers
  */
+
 function getSum(numbers) {
-  // TODO
+
+  let sum = 0;
+
+  for (const num of numbers) {
+        sum += num;
+  }
+  return sum;
 }
+
+
+//Adds together the numbrs 
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the mean of the numbers
  */
+
+
 function getMean(numbers) {
-  // TODO
+  const sum = getSum(numbers);
+
+  return sum / numbers.length;
 }
+
+
+//Finds the mean/average of the numbers 
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the smallest of the numbers
  */
 function getMin(numbers) {
-  // TODO
+
+  let min = Infinity;
+  for (const num of numbers) {
+    if (num < min) {
+      min = num;
+    }
+  }
+  return min;
 }
+
+
+//This selects the smallest of the numbers 
+
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the largest of the numbers
  */
 function getMax(numbers) {
-  // TODO
+
+  let max = -Infinity;
+  for (const num of numbers) {
+    if (num > max) {
+      max = num;
+    }
+  }
+  return max;
 }
+
+
+//This selects the largest of the numbers 
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number} the range of the numbers (max - min)
  */
 function getRange(numbers) {
-  // TODO
+
+  const min = getMin(numbers);
+  const max = getMax(numbers);
+  return max - min;
 }
+
+
+//This seeks a range of numbers, minimum and maximum, and then subtracts the minimum from the maximum. 
+
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number[]} the even numbers in the array
  */
 function getEvens(numbers) {
-  // TODO
+
+  let evens = [];
+  for (const num of numbers) {
+
+    if (num % 2 === 0) {
+      evens.push(num);
+    }
+  }
+  return evens;
 }
 
 /**
  * @param {number[]} numbers an array of integers
  * @returns {number[]} the odd numbers in the array
  */
+
 function getOdds(numbers) {
-  // TODO
+  let evens = [];
+ 
+  for (const num of numbers) {
+    if (num % 2 !== 0) {
+      evens.push(num);
+    }
+  }
+  return evens;
 }
